@@ -1,0 +1,46 @@
+import Rolando.*
+import Hechizos.*
+import FuerzaOscura.*
+import Artefactos.*
+
+describe "Test sobre Lucha" {
+
+	fixture {
+		// El collar divino tiene 5 perlas
+		collarDivino.perlas(5)
+		rolando.agregarArtefacto(espadaDelDestino)
+		rolando.agregarArtefacto(collarDivino)
+		rolando.agregarArtefacto(mascaraOscura)
+	}	
+
+	test "Si Rolando no tiene artefactos, su habilidad de lucha es 1" {
+		rolando.removerTodosLosArtefactos()
+		assert.equals(1, rolando.habilidadParaLuchar())
+	}
+
+	test "Con todos los artefactos, la habilidad de lucha de Rolando es 13" {
+		assert.equals(13, rolando.habilidadParaLuchar())
+	}
+
+	test "Con un collar de tres perlas, la habilidad de lucha de Rolando es 11" {
+		collarDivino.perlas(3)
+		assert.equals(11, rolando.habilidadParaLuchar())
+	}
+
+	test "Con un valor base de 8, la habilidad para luchar es 20" {
+		rolando.valorBaseDeLucha(8)
+		assert.equals(20, rolando.habilidadParaLuchar())
+	}
+
+	test "Si ocurre un eclipse, el valor de lucha de la máscara oscura es 5" {
+		mundo.sucesoNuevo(eclipse)
+		assert.equals(5, mascaraOscura.unidadesDeLucha())
+	}
+
+	test "Sin la mascara oscura, la habilidad de lucha de Rolando es 9" {
+		rolando.removerArtefacto(mascaraOscura)
+		assert.equals(9, rolando.habilidadParaLuchar())
+	}
+
+}
+

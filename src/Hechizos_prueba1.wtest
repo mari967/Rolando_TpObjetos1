@@ -1,0 +1,41 @@
+import Rolando.*
+import Hechizos.*
+import FuerzaOscura.*
+import Artefactos.*
+
+describe "test sobre hechizos" {
+
+	fixture {
+		espectroMalefico.cambiarNombre("espectro malefico")
+		rolando.hechizoPreferido(espectroMalefico)
+	}
+
+	test "El nivel de hechicería de Rolando es 56" {
+		assert.equals(56, rolando.nivelDeHechiceria())
+	}
+	
+	test "Si el nombre del espectro maléfico es espectro superrecontramalefico muajajaja,
+	el nivel de hechicería de Rolando es 125" {
+		espectroMalefico.cambiarNombre("espectro superrecontramalefico muajajaja")
+		assert.equals(125, rolando.nivelDeHechiceria())
+	}
+	test "Si el hechizo de Rolando es el básico, su nivel de hechicería es 35" {
+		rolando.hechizoPreferido(hechizoBasico)
+		assert.equals(35, rolando.nivelDeHechiceria())
+	}
+	test "Si sucede un eclipse, el nivel de hechicería de Rolando es 61" {
+		mundo.sucesoNuevo(eclipse)
+		assert.equals(61, rolando.nivelDeHechiceria())
+	}
+	test "El espectro maléfico es poderoso" {
+		assert.that(espectroMalefico.esPoderoso())
+	}
+	test "Si el espectro maléfico se llama Pepe, no es poderoso" {
+		espectroMalefico.cambiarNombre("pepe")
+		assert.notThat(espectroMalefico.esPoderoso())
+	}
+	test "El hechizo básico no es poderoso" {
+		assert.notThat(hechizoBasico.esPoderoso())
+	}
+}
+
