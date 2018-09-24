@@ -55,4 +55,4 @@ object libroDeHechizos {
 		return self.poder() > 15
 	}
 
-}
+} //Es como mágia :o
