@@ -56,5 +56,7 @@ object libroDeHechizos {
 	}
 
 } 
+
 //INCREIBLE XD
 //Es como mágia :o
+//lalalalalala felices vacaciones ´:?
