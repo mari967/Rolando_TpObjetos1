@@ -2,6 +2,7 @@ import Hechizos.*
 import FuerzaOscura.*
 import Artefactos.*
 
+//jaja era acá
 object rolando {
 
 	var hechizoPreferido
